@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>边缘型 vs 反社会型人格障碍：临床比较与批判性分析</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖</text></svg>">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{--navy:#1a2744;--navy-light:#2d3f63;--amber:#c8956c;--amber-light:#e8c9a8;--teal:#3d7a7c;--teal-light:#7ab0b2;--bg:#f6f4ef;--bg-card:#fff;--ink:#232323;--ink-light:#5a5a5a;--border:#e4dfd5;--danger:#b85450;--bpd:#c8956c;--bpd-bg:#faf3ec;--aspd:#3d7a7c;--aspd-bg:#edf4f4;--sidebar-w:240px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:15.5px;}
+h1,h2,h3,h4{font-family:'Noto Serif SC',serif;line-height:1.35;color:var(--navy);}
+a{color:var(--teal);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.topnav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,39,68,.98);backdrop-filter:blur(10px);height:56px;display:flex;align-items:center;padding:0 20px;box-shadow:0 2px 12px rgba(0,0,0,.12);}
+.topnav .brand{color:#fff;font-family:'Noto Serif SC',serif;font-weight:700;font-size:15px;white-space:nowrap;}
+.topnav .brand b{color:var(--amber);}
+.topnav .navlinks{margin-left:auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.topnav .navlinks::-webkit-scrollbar{display:none;}
+.topnav .navlinks a{color:rgba(255,255,255,.7);font-size:13px;padding:6px 12px;border-radius:5px;white-space:nowrap;transition:all .15s;}
+.topnav .navlinks a:hover,.topnav .navlinks a.active{color:#fff;background:rgba(255,255,255,.12);text-decoration:none;}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 10px;border-radius:5px;cursor:pointer;font-size:13px;}
+.layout{display:flex;padding-top:56px;}
+.sidebar{width:var(--sidebar-w);position:fixed;top:56px;left:0;bottom:0;background:#fff;border-right:1px solid var(--border);overflow-y:auto;padding:24px 0;z-index:50;}
+.sidebar .toc-title{font-size:11px;letter-spacing:2px;color:#999;padding:0 20px 10px;font-weight:600;}
+.sidebar a{display:block;padding:8px 20px 8px 24px;font-size:13.5px;color:var(--ink-light);border-left:3px solid transparent;transition:all .15s;line-height:1.5;}
+.sidebar a:hover{background:#faf8f4;color:var(--navy);text-decoration:none;}
+.sidebar a.active{color:var(--navy);font-weight:600;border-left-color:var(--amber);background:#faf8f4;}
+.sidebar a .num{display:inline-block;width:22px;font-family:'Noto Serif SC',serif;color:var(--amber);font-weight:700;font-size:12px;}
+.main{margin-left:var(--sidebar-w);flex:1;min-width:0;}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:#fff;padding:56px 40px 44px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(200,149,108,.18) 0%,transparent 70%);border-radius:50%;}
+.hero-inner{position:relative;z-index:1;max-width:860px;}
+.hero .eyebrow{display:inline-block;padding:5px 16px;border:1px solid rgba(255,255,255,.3);border-radius:20px;font-size:12px;letter-spacing:2px;margin-bottom:20px;color:var(--amber-light);}
+.hero h1{font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;margin-bottom:16px;}
+.hero h1 .vs{color:var(--amber);margin:0 8px;}
+.hero .subtitle{font-size:15.5px;line-height:1.85;color:rgba(255,255,255,.82);max-width:720px;}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:28px;}
+.hero-stat .num{font-family:'Noto Serif SC',serif;font-size:30px;font-weight:700;color:var(--amber-light);}
+.hero-stat .label{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:2px;}
+section{padding:48px 40px;}
+section.alt{background:#fff;}
+.section-head{margin-bottom:28px;}
+.section-num{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--amber);letter-spacing:3px;font-weight:600;}
+.section-head h2{font-size:clamp(22px,3vw,30px);font-weight:700;margin:4px 0 8px;}
+.section-head p{font-size:14.5px;color:var(--ink-light);max-width:780px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:22px;}
+.card h3{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.card h3 .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.card.bpd-card{border-top:3px solid var(--bpd);}
+.card.bpd-card h3 .dot{background:var(--bpd);}
+.card.aspd-card{border-top:3px solid var(--aspd);}
+.card.aspd-card h3 .dot{background:var(--aspd);}
+.card p,.card li{font-size:14px;color:var(--ink-light);line-height:1.8;}
+.card ul{padding-left:18px;}
+.card ul li{margin-bottom:5px;}
+.tag{display:inline-block;padding:2px 9px;border-radius:4px;font-size:11.5px;font-weight:500;margin:2px 3px 2px 0;}
+.tag-bpd{background:var(--bpd-bg);color:#9a6d44;}
+.tag-aspd{background:var(--aspd-bg);color:#2d5a5c;}
+.tag-both{background:#eef0f4;color:var(--navy);}
+.abstract-box{background:var(--navy);color:#fff;border-radius:12px;padding:32px;}
+.abstract-box h3{color:var(--amber-light);font-size:13px;letter-spacing:3px;margin-bottom:14px;}
+.abstract-box p{font-size:14.5px;line-height:1.95;color:rgba(255,255,255,.88);}
+.abstract-box strong{color:var(--amber-light);}
+.tabs{display:flex;gap:0;margin-bottom:22px;border-bottom:2px solid var(--border);overflow-x:auto;}
+.tab-btn{padding:10px 20px;background:none;border:none;font-family:'Noto Serif SC',serif;font-size:15px;font-weight:600;color:var(--ink-light);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .15s;}
+.tab-btn:hover{color:var(--navy);}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--amber);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;animation:fadeIn .25s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.ctable-wrap{overflow-x:auto;border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,.05);}
+.ctable{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;table-layout:fixed;}
+.ctable th,.ctable td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+.ctable thead th{background:var(--navy);color:#fff;font-weight:600;font-size:13px;}
+.ctable .dim{background:#faf8f4;font-weight:600;color:var(--navy);font-size:13px;}
+.ctable .bpd-col{border-left:3px solid var(--bpd);}
+.ctable .aspd-col{border-left:3px solid var(--aspd);}
+.ctable td:first-child{font-weight:600;color:var(--navy);font-size:13px;}
+.ctable tr:hover td{background:#faf8f4;}
+.bps-model{display:grid;grid-template-columns:1fr 1fr 1fr;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+.bps-col{padding:20px;}
+.bps-col:nth-child(1){background:#fef9f3;}
+.bps-col:nth-child(2){background:#f0f6f6;}
+.bps-col:nth-child(3){background:#f4f2f8;}
+.bps-col h4{font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.bps-col .icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;}
+.bps-col ul{padding-left:16px;}
+.bps-col li{font-size:13px;margin-bottom:7px;line-height:1.75;}
+@media(max-width:800px){.bps-model{grid-template-columns:1fr;}}
+.chart-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;margin:16px 0;}
+.chart-title{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.chart{width:100%;height:340px;}
+.case{background:#fff;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:20px;margin:16px 0;}
+.case.teal{border-left-color:var(--teal);}
+.case .case-label{font-size:11px;letter-spacing:2px;color:var(--amber);font-weight:700;margin-bottom:6px;}
+.case.teal .case-label{color:var(--teal);}
+.case h4{font-size:16px;margin-bottom:8px;}
+.case p{font-size:14px;line-height:1.85;color:var(--ink-light);}
+.case-btn{margin-top:12px;padding:8px 18px;background:var(--navy);color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:13px;}
+.case-btn:hover{background:var(--navy-light);}
+.case-body{display:none;margin-top:12px;padding:16px;background:#faf8f4;border-radius:8px;border:1px solid var(--border);}
+.case-body.show{display:block;animation:fadeIn .25s;}
+.case-body h5{color:var(--navy);font-size:14px;margin-bottom:6px;}
+.case-body p{font-size:13.5px;line-height:1.8;}
+.debate{background:#fff;border:1px solid var(--border);border-radius:10px;padding:22px;}
+.debate-q{font-size:14.5px;line-height:1.85;padding:14px 16px;background:#faf8f4;border-radius:8px;border-left:3px solid var(--teal);margin-bottom:14px;}
+.debate-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.debate-opt{padding:14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;}
+.debate-opt:hover{border-color:var(--amber);background:#fef9f3;}
+.debate-opt.sel{border-color:var(--amber);background:#fef9f3;}
+.debate-opt .lbl{font-weight:600;font-size:14px;color:var(--navy);margin-bottom:3px;}
+.debate-opt .desc{font-size:12.5px;color:var(--ink-light);line-height:1.65;}
+.debate-fb{display:none;margin-top:14px;padding:14px;background:#faf8f4;border-radius:8px;font-size:13.5px;line-height:1.8;color:var(--ink-light);}
+@media(max-width:700px){.debate-opts{grid-template-columns:1fr;}}
+.quiz-q{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:12px;}
+.quiz-q .qt{font-size:14.5px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.quiz-opts{display:flex;flex-direction:column;gap:6px;}
+.quiz-opt{padding:8px 14px;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:13.5px;transition:all .12s;}
+.quiz-opt:hover{border-color:var(--teal);background:var(--aspd-bg);}
+.quiz-opt.ok{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.quiz-opt.no{background:#fdecea;border-color:#e57373;color:#c62828;}
+.quiz-fb{display:none;margin-top:8px;padding:8px 12px;border-radius:6px;font-size:13px;}
+.quiz-fb.show{display:block;}
+.quiz-fb.ok{background:#e8f5e9;color:#2e7d32;}
+.quiz-fb.no{background:#fdecea;color:#c62828;}
+.refs{font-size:12.5px;line-height:1.85;}
+.refs ol{padding-left:0;list-style:none;counter-reset:r;}
+.refs ol li{counter-increment:r;margin-bottom:8px;padding-left:30px;text-indent:-30px;color:var(--ink-light);}
+.refs ol li::before{content:counter(r) ".";font-weight:600;color:var(--navy);margin-right:6px;}
+footer{background:var(--navy);color:rgba(255,255,255,.55);padding:32px 40px;font-size:12.5px;line-height:1.8;}
+footer p{max-width:700px;}
+.cite{font-size:10px;vertical-align:super;color:var(--teal);font-weight:600;}
+.pull{border-left:4px solid var(--amber);padding:14px 20px;margin:20px 0;background:#faf8f4;font-family:'Noto Serif SC',serif;font-size:15.5px;font-style:italic;color:var(--navy);line-height:1.8;}
+@media(max-width:1024px){:root{--sidebar-w:0px;}.sidebar{display:none;}.main{margin-left:0;}section{padding:36px 24px;}.hero{padding:40px 24px;}footer{padding:28px 24px;}.topnav .navlinks{display:none;}.menu-btn{display:block;}.topnav.open .navlinks{display:flex;flex-direction:column;position:absolute;top:56px;left:0;right:0;background:var(--navy);padding:10px 20px;box-shadow:0 4px 12px rgba(0,0,0,.2);}.topnav.open .navlinks a{padding:10px 0;}}
+</style>
+</head>
+<body>
+<nav class="topnav" id="topnav">
+  <div class="brand">人格障碍比较研究 <b>PD·CMP</b></div>
+  <button class="menu-btn" onclick="document.getElementById('topnav').classList.toggle('open')">目录</button>
+  <div class="navlinks">
+    <a href="#abstract">摘要</a><a href="#diagnosis">诊断标准</a><a href="#epidemiology">流行病学</a><a href="#comparison">异同比较</a><a href="#etiology">病因模型</a><a href="#treatment">干预措施</a><a href="#critical">批判反思</a><a href="#interactive">互动练习</a><a href="#references">参考文献</a>
+  </div>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+  <div class="toc-title">本页目录</div>
+  <a href="#abstract"><span class="num">01</span>摘要</a>
+  <a href="#diagnosis"><span class="num">02</span>诊断标准 DSM-5-TR</a>
+  <a href="#epidemiology"><span class="num">03</span>流行病学与临床特征</a>
+  <a href="#comparison"><span class="num">04</span>异同直接对照</a>
+  <a href="#etiology"><span class="num">05</span>生物-心理-社会病因</a>
+  <a href="#treatment"><span class="num">06</span>循证干预措施</a>
+  <a href="#critical"><span class="num">07</span>批判性分析</a>
+  <a href="#interactive"><span class="num">08</span>案例·辩论·测验</a>
+  <a href="#references"><span class="num">09</span>参考文献 APA 7</a>
+</aside>
+<main class="main">
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">临床心理学 · 教学研究模块</div>
+    <h1>边缘型人格障碍 <span class="vs">vs</span> 反社会型人格障碍</h1>
+    <p class="subtitle">从 DSM-5-TR 诊断框架到生物-心理-社会整合模型，横跨流行病学、病因学、实证治疗与文化批判——系统比较两种高共病、高污名、媒体再现充满争议的人格障碍。</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">1.4–2.7%</div><div class="label">BPD 终生患病率</div></div>
+      <div class="hero-stat"><div class="num">1–4%</div><div class="label">ASPD 终生患病率</div></div>
+      <div class="hero-stat"><div class="num">~46%</div><div class="label">BPD 遗传度估计</div></div>
+      <div class="hero-stat"><div class="num">50–67%</div><div class="label">ASPD 同卵双生一致率</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="abstract">
+  <div class="section-head"><div class="section-num">01 · ABSTRACT</div><h2>摘要</h2></div>
+  <div class="abstract-box">
+    <h3>核心发现</h3>
+    <p>边缘型人格障碍（BPD）以<strong>情绪失调、人际不稳定、害怕被遗弃与身份混乱</strong>为核心，女性诊断率略高，常合并自伤与自杀行为；反社会型人格障碍（ASPD）则以<strong>漠视他人权益、欺骗、冲动与缺乏悔意</strong>为特征，男性诊断率显著偏高，且必须有 15 岁前品行障碍（CD）病史。在 DSM-5 另类人格障碍模型（AMPD）中，两者共享「去抑制」特质维度，但 BPD 附加高「负情感性」，ASPD 附加高「对抗性」<span class="cite">[1]</span>。病因上，BPD 的生物-社会理论强调情绪敏感体质与情绪失效环境的交互；ASPD 则涉及低恐惧条件化、杏仁核低反应与遗传-环境交互。治疗上，辩证行为治疗（DBT）是 BPD 最具实证支持的心理治疗；ASPD 治疗长期被视为悲观，但心智化治疗（MBT）的新证据正在改变这一格局。文化批判上，BPD 在中国 CCMD 中未被正式确立，东亚样本呈现更多躯体化与内化症状；ASPD 的性别偏见与媒体刻板再现亦值得深入反思。</p>
+  </div>
+</section>
+<!-- 02 Diagnosis -->
+<section id="diagnosis" class="alt">
+  <div class="section-head">
+    <div class="section-num">02 · DIAGNOSTIC CRITERIA</div>
+    <h2>定义与诊断标准（DSM-5-TR）</h2>
+    <p>两者同属 B 群人格障碍（戏剧化、情绪不稳定或反复无常）。点击标签切换查看。</p>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="bpd-diag">边缘型 BPD</button>
+    <button class="tab-btn" data-tab="aspd-diag">反社会型 ASPD</button>
+    <button class="tab-btn" data-tab="ampd">另类模型 AMPD</button>
+  </div>
+  <div class="tab-panel active" id="bpd-diag">
+    <div class="grid-2">
+      <div class="card bpd-card">
+        <h3><span class="dot"></span>核心定义</h3>
+        <p>一种广泛模式，<strong>人际关系、自我形象与情感不稳定，并显著冲动性</strong>，起始于成年早期，表现为以下九项中至少五项<span class="cite">[2]</span>：</p>
+        <ul style="margin-top:12px;">
+          <li><strong>1.</strong> 疯狂努力避免真实或想象的被遗弃</li>
+          <li><strong>2.</strong> 不稳定且强烈的人际关系模式，在理想化与贬抑之间交替（分裂）</li>
+          <li><strong>3.</strong> 身份混乱：显著而持久的不稳定自我形象或自我感</li>
+          <li><strong>4.</strong> 至少两个领域的潜在自我伤害冲动性（消费、性行为、物质滥用、鲁莽驾驶、暴饮暴食）</li>
+          <li><strong>5.</strong> 反复自杀行为、姿态、威胁或自伤行为</li>
+          <li><strong>6.</strong> 情感不稳定：心境显著反应性（强烈阵发性烦躁、易怒或焦虑，通常持续数小时）</li>
+          <li><strong>7.</strong> 慢性空虚感</li>
+          <li><strong>8.</strong> 不恰当、强烈的愤怒或难以控制愤怒</li>
+          <li><strong>9.</strong> 短暂、与压力相关的偏执观念或严重解离症状</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>临床细微特征</h3>
+          <ul>
+            <li><strong>害怕遗弃</strong>是「情绪引擎」：对真实或想象的疏离极度敏感</li>
+            <li><strong>分裂（splitting）</strong>防御机制：非黑即白，无法整合好与坏</li>
+            <li><strong>慢性空虚感</strong>不同于悲伤——是内在空洞感，常驱动冲动行为填补</li>
+            <li>情绪波动<strong>以小时计</strong>（vs 双相障碍以天/周计），常由人际事件触发</li>
+            <li>自伤/自杀威胁常与<strong>人际压力</strong>密切相关</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>必要排除标准</h3>
+          <p>症状不能更好地解释为：双相情感障碍（心境持续时间与病程不同）、复杂性创伤后应激障碍（C-PTSD）、物质/药物效应、或其他轴 I 障碍表现。人格模式必须<strong>持久、恒定、跨情境</strong>。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" id="aspd-diag">
+    <div class="grid-2">
+      <div class="card aspd-card">
+        <h3><span class="dot"></span>核心定义</h3>
+        <p>一种广泛模式，<strong>无视于并侵犯他人权益</strong>，自 15 岁起即存在。诊断需同时满足三个条件<span class="cite">[3]</span>：</p>
+        <ul style="margin-top:12px;">
+          <li><strong>条件 A：</strong>自 15 岁起，以下七项至少三项：
+            <ul style="margin-top:6px;">
+              <li>不遵从社会常模与法律行为（反复可被逮捕的行为）</li>
+              <li>欺骗性：反复说谎、使用化名、为个人利益或快乐而哄骗他人</li>
+              <li>冲动性或缺乏提前计划能力</li>
+              <li>易怒与攻击性：反复肢体打架或侵犯</li>
+              <li>不顾自身或他人安全的鲁莽</li>
+              <li>持续无责任感：反复未能维持一致工作表现</li>
+              <li>无悔意：对伤害、虐待或偷窃他人表现不在乎或合理化</li>
+            </ul>
+          </li>
+          <li><strong>条件 B：</strong>个体年龄<strong>至少 18 岁</strong></li>
+          <li><strong>条件 C：</strong>有证据表明 <strong>15 岁前有品行障碍（CD）</strong>发病</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>临床细微特征</h3>
+          <ul>
+            <li><strong>品行障碍前置要求</strong>是关键诊断闸门——成年才出现的反社会行为不诊断 ASPD</li>
+            <li><strong>缺乏悔意</strong>不是「有礼貌地道歉」，而是对他人受害表现不在乎、轻视或合理化</li>
+            <li>ASPD ≠ 精神病态（Psychopathy）：DSM-5 诊断主要基于<strong>外显行为</strong>；精神病态（Hare PCL-R）还包含人际-情感特质<span class="cite">[4]</span></li>
+            <li>终生病程常呈「成熟缓和」：30–40 岁后部分行为症状（尤其犯罪）自然减少，但人际-情感特质持续</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>必要排除标准</h3>
+          <p>行为不能仅发生在精神分裂症或双相障碍病程中。需区分：<strong>物质使用障碍</strong>相关行为、<strong>躁狂发作</strong>期冲动攻击、以及纯粹犯罪行为（无人格模式者不应贴标）。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" id="ampd">
+    <div class="card">
+      <h3>DSM-5 第三部分：另类人格障碍模型（AMPD）</h3>
+      <p style="margin-bottom:14px;">DSM-5 引入混合-维度模型，以人格功能损害等级（LPFS）为基础，搭配五大人格特质领域。</p>
+      <div class="ctable-wrap">
+        <table class="ctable">
+          <colgroup><col style="width:22%"><col style="width:39%"><col style="width:39%"></colgroup>
+          <thead><tr><th>特质领域</th><th class="bpd-col">边缘型 BPD</th><th class="aspd-col">反社会型 ASPD</th></tr></thead>
+          <tbody>
+            <tr><td>负情感性</td><td class="bpd-col"><strong>极高</strong>：情绪不稳、焦虑、分离不安、抑郁</td><td class="aspd-col">低：情绪浅薄、情感剥离</td></tr>
+            <tr><td>对抗性</td><td class="bpd-col">轻度：愤怒、敌意波动</td><td class="aspd-col"><strong>极高</strong>：操纵、欺骗、冷酷、敌意</td></tr>
+            <tr><td>去抑制</td><td class="bpd-col"><strong>高</strong>：冲动、不负责、注意力分散</td><td class="aspd-col"><strong>高</strong>：冲动、无计划、风险寻求</td></tr>
+            <tr><td>分裂/疏离</td><td class="bpd-col">低：极度渴望连结</td><td class="aspd-col">中度：情感剥离、无畏</td></tr>
+            <tr><td>精神病性</td><td class="bpd-col">轻度：短暂压力相关偏执</td><td class="aspd-col">低</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:14px;font-size:13.5px;color:var(--ink-light);">
+        <strong>关键洞见：</strong>两者共享「去抑制」核心维度——这是它们共病率高的维度基础。差异在于：BPD 的情绪世界是「<strong>过度丰富、过度敏感</strong>」，ASPD 的情绪世界是「<strong>过度贫乏、过度麻木</strong>」。ICD-11 采用更彻底的维度取向，仅保留「边缘型特征」作为标识符。<span class="cite">[5]</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Epidemiology -->
+<section id="epidemiology">
+  <div class="section-head">
+    <div class="section-num">03 · EPIDEMIOLOGY</div>
+    <h2>流行病学与临床特征</h2>
+    <p>最新社区调查与临床样本的患病率、性别分布、发病年龄与病程预后。</p>
+  </div>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="chart-box">
+      <div class="chart-title">图 1：不同场景下 BPD 患病率比较</div>
+      <div id="chart-epi-bpd" class="chart"></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">图 2：BPD vs ASPD 性别分布（诊断率%）</div>
+      <div id="chart-gender" class="chart"></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card bpd-card">
+      <h3><span class="dot"></span>BPD 流行病学要点</h3>
+      <ul>
+        <li><strong>社区患病率：</strong>约 1.4–2.7%（美国 NCS-R 为 1.4%）<span class="cite">[6][7]</span></li>
+        <li><strong>临床场景：</strong>初级保健约 6%，精神科门诊 11–12%，精神科住院达 22%<span class="cite">[7]</span></li>
+        <li><strong>性别：</strong>女性约占诊断 75%，但社区样本性别差异较小</li>
+        <li><strong>发病：</strong>青春期后期至成年早期</li>
+        <li><strong>病程预后：</strong><strong>症状随年龄改善</strong>——10 年缓解率可达 50–80%<span class="cite">[8]</span></li>
+        <li><strong>自杀风险：</strong>约 8–10% 患者死于自杀</li>
+      </ul>
+    </div>
+    <div class="card aspd-card">
+      <h3><span class="dot"></span>ASPD 流行病学要点</h3>
+      <ul>
+        <li><strong>终生患病率：</strong>约 1–4%（NESARC-III 估计 4.3%）<span class="cite">[9]</span></li>
+        <li><strong>性别：</strong>男性诊断率是女性的 3–5 倍；男约 6%，女约 2%<span class="cite">[10]</span></li>
+        <li><strong>发病：</strong>15 岁前必有品行障碍；18 岁后方可诊断</li>
+        <li><strong>共病高峰：</strong>与物质使用障碍共病率极高；监禁人群中达 40–70%</li>
+        <li><strong>病程：</strong>外显行为 30–40 岁后自然缓和，但人际-情感特质相对稳定<span class="cite">[4]</span></li>
+        <li><strong>预后：</strong>脱落率高，但 MBT-ASPD 试验显示希望</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pull" style="margin-top:24px;">
+    「BPD 并非终生判决。纵向证据反复表明，大多数患者随时间推移获得显著症状缓解——这与公众和部分临床人员的悲观印象形成鲜明对比。」
+  </div>
+</section>
+<!-- 04 Comparison -->
+<section id="comparison" class="alt">
+  <div class="section-head">
+    <div class="section-num">04 · SIMILARITIES & DIFFERENCES</div>
+    <h2>异同直接对照</h2>
+    <p>两者同属 B 群人格障碍，共享冲动性与情绪失调核心，但在情绪效价、人际导向与攻击方向上根本不同。</p>
+  </div>
+  <div class="ctable-wrap">
+    <table class="ctable">
+      <colgroup><col style="width:18%"><col style="width:41%"><col style="width:41%"></colgroup>
+      <thead><tr><th>维度</th><th class="bpd-col">边缘型 BPD</th><th class="aspd-col">反社会型 ASPD</th></tr></thead>
+      <tbody>
+        <tr><td>核心情绪</td><td class="bpd-col"><strong>情绪过度反应</strong>：焦虑、空虚、愤怒、被遗弃恐惧——情绪「太多太强」</td><td class="aspd-col"><strong>情绪低反应</strong>：冷漠、浅薄、无畏——情绪「太少太弱」</td></tr>
+        <tr><td>人际导向</td><td class="bpd-col"><strong>趋近型</strong>：疯狂寻求连结，害怕孤独，人际依赖</td><td class="aspd-col"><strong>工具型</strong>：利用他人达成目的，无真实亲密需求</td></tr>
+        <tr><td>攻击方向</td><td class="bpd-col"><strong>向内攻击</strong>为主：自伤、自杀行为；向外攻击为辅</td><td class="aspd-col"><strong>向外攻击</strong>为主：伤害、欺骗、剥削他人</td></tr>
+        <tr><td>冲动性</td><td class="bpd-col">有：物质滥用、暴食、自伤——但<strong>伴随情绪痛苦</strong></td><td class="aspd-col">有：鲁莽、无计划——但<strong>伴随无视后果</strong></td></tr>
+        <tr><td>悔意/罪恶感</td><td class="bpd-col"><strong>过度</strong>：经常感到内疚、羞耻、空虚</td><td class="aspd-col"><strong>缺乏</strong>：合理化伤害，不在乎他人痛苦</td></tr>
+        <tr><td>认知特征</td><td class="bpd-col">分裂（splitting）：全好/全坏；短暂压力相关偏执</td><td class="aspd-col">工具性认知扭曲：「规则不适用于我」「我比别人聪明」</td></tr>
+        <tr><td>典型性别</td><td class="bpd-col">女性为主（约 75% 临床样本）</td><td class="aspd-col">男性为主（约 70–80%）</td></tr>
+        <tr><td>创伤史</td><td class="bpd-col">高：童年虐待/忽视/情绪失效环境常见（约 70% 报告）</td><td class="aspd-col">中高：类型偏向管教不一致、行为模范、社会不利</td></tr>
+        <tr><td>对治疗态度</td><td class="bpd-col">渴望帮助但难以信任；治疗联盟波动大</td><td class="aspd-col">常因法律压力而来；动机低、易脱落、可能操纵治疗师</td></tr>
+        <tr><td>AMPD 核心</td><td class="bpd-col">高负情感性 + 高去抑制</td><td class="aspd-col">高对抗性 + 高去抑制</td></tr>
+        <tr><td>共同点</td><td colspan="2" style="text-align:center;">
+          <span class="tag tag-both">同属 B 群</span>
+          <span class="tag tag-both">高冲动性</span>
+          <span class="tag tag-both">高共病率（约 20%）</span>
+          <span class="tag tag-both">物质使用共病</span>
+          <span class="tag tag-both">童年逆境</span>
+          <span class="tag tag-both">治疗脱落风险</span>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="chart-box" style="margin-top:20px;">
+    <div class="chart-title">图 3：BPD 与 ASPD 在 AMPD 五特质维度上的剖面比较</div>
+    <div id="chart-radar" class="chart"></div>
+  </div>
+</section>
+
+<!-- 05 Etiology -->
+<section id="etiology">
+  <div class="section-head">
+    <div class="section-num">05 · BIOPSYCHOSOCIAL MODEL</div>
+    <h2>整合性病因：生物-心理-社会模型</h2>
+    <p>两种障碍均非单一原因所致，而是生物易感性、心理发展与社会环境动态交互的产物。</p>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="bpd-etio">BPD 病因</button>
+    <button class="tab-btn" data-tab="aspd-etio">ASPD 病因</button>
+  </div>
+  <div class="tab-panel active" id="bpd-etio">
+    <div class="bps-model">
+      <div class="bps-col">
+        <h4><span class="icon" style="background:#fce4d6;color:#c8956c;">B</span>生物学因素</h4>
+        <ul>
+          <li><strong>遗传度：</strong>双生子研究估计约 46%；同卵双生一致率是异卵的 11.5 倍<span class="cite">[11][12]</span></li>
+          <li><strong>5-HTTLPR 短等位基因</strong>：与血清素系统相关，情绪调节脆弱性<span class="cite">[12]</span></li>
+          <li><strong>额叶-边缘系统失衡：</strong>杏仁核与前扣皮质过度活化（情绪高反应），前额叶皮质（尤其眶额皮质）功能低下（情绪「刹车」不足）<span class="cite">[13]</span></li>
+          <li><strong>结构差异：</strong>杏仁核与海马体体积减小（Ruocco et al., 2012 后设分析）<span class="cite">[14]</span></li>
+          <li><strong>HPA 轴：</strong>皮质醇反应模式异常，应激调节失灵</li>
+        </ul>
+      </div>
+      <div class="bps-col">
+        <h4><span class="icon" style="background:#e0f0f0;color:#3d7a7c;">P</span>心理因素</h4>
+        <ul>
+          <li><strong>Linehan 生物-社会理论：</strong>情绪敏感体质 × 情绪失效环境的交互——高情绪敏感的孩子被 dismissing、惩罚或不规则强化的照顾者对待<span class="cite">[15]</span></li>
+          <li><strong>情绪失调三要素：</strong>情绪阈值低、情绪反应强烈、回到基线慢</li>
+          <li><strong>依附损伤：</strong>混乱型依附（disorganized attachment）常见</li>
+          <li><strong>认知扭曲：</strong>分裂（非黑即白）、灾难化、情绪推理</li>
+          <li><strong>发展性创伤：</strong>童年身体/性/情感虐待或忽视约见于 60–70% 患者</li>
+        </ul>
+      </div>
+      <div class="bps-col">
+        <h4><span class="icon" style="background:#ece5f5;color:#6b5b8a;">S</span>社会文化因素</h4>
+        <ul>
+          <li><strong>情绪失效家庭环境：</strong>照顾者对情绪表达不一致回应——有时过度介入，有时冷漠惩罚</li>
+          <li><strong>创伤暴露：</strong>虐待、忽视、家庭暴力、情感剥夺</li>
+          <li><strong>社会压力：</strong>贫困、疏离、支持系统薄弱</li>
+          <li><strong>文化因素：</strong>在集体主义文化中，「害怕被遗弃」可能以更内化的方式表现</li>
+          <li><strong>性别社会化：</strong>女性被社会化为依赖情绪表达，可能加剧 BPD 诊断的性别偏差</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" id="aspd-etio">
+    <div class="bps-model">
+      <div class="bps-col">
+        <h4><span class="icon" style="background:#fce4d6;color:#c8956c;">B</span>生物学因素</h4>
+        <ul>
+          <li><strong>遗传度：</strong>反社会行为遗传度估计 40–60%；精神病态特质在青少年中可达 69–81%<span class="cite">[16][17]</span></li>
+          <li><strong>同卵双生一致率约 67%</strong>，异卵约 31%<span class="cite">[17]</span></li>
+          <li><strong>杏仁核低反应性：</strong>对恐惧表情、负面线索和道德违规的反应减弱——最复制的神经影像发现<span class="cite">[18]</span></li>
+          <li><strong>腹内侧前额叶皮质（vmPFC）功能低下：</strong>损害刺激-强化学习与道德判断</li>
+          <li><strong>低静息心率：</strong>最稳定的反社会行为生理相关——反映低唤起与恐惧缺失<span class="cite">[18]</span></li>
+          <li><strong>纹状体增大：</strong>对奖赏高度敏感，倾向刺激寻求</li>
+          <li><strong>MAOA-L 基因：</strong>与童年虐待交互预测攻击行为（Caspi et al., 2002）——但媒体解读远为过度简化</li>
+        </ul>
+      </div>
+      <div class="bps-col">
+        <h4><span class="icon" style="background:#e0f0f0;color:#3d7a7c;">P</span>心理因素</h4>
+        <ul>
+          <li><strong>低恐惧/低唤起理论：</strong>Gray 的强化敏感性理论——行为抑制系统（BIS）功能弱，难以通过惩罚学习<span class="cite">[18]</span></li>
+          <li><strong>Blair 整合情绪系统理论：</strong>杏仁核损害导致恐惧条件化缺陷和移情损伤</li>
+          <li><strong>心智化损伤（「盲于心」）：</strong>难以理解自己和他人的心理状态——MBT 的核心标靶</li>
+          <li><strong>认知扭曲：</strong>敌意归因偏误、「规则不适用于我」、合理化剥削</li>
+          <li><strong>品行障碍发展轨迹：</strong>儿童期起病 vs 青春期起病，预后不同</li>
+        </ul>
+      </div>
+      <div class="bps-col">
+        <h4><span class="icon" style="background:#ece5f5;color:#6b5b8a;">S</span>社会文化因素</h4>
+        <ul>
+          <li><strong>家庭教育不一致：</strong>严厉但不可预测的纪律、缺乏亲子连结</li>
+          <li><strong>家庭暴力/犯罪同伴影响：</strong>观察学习反社会行为模范</li>
+          <li><strong>社会经济劣势：</strong>贫困、社区暴力、剥夺性环境</li>
+          <li><strong>学校失败与同伴拒绝：</strong>强化偏差发展轨迹</li>
+          <li><strong>文化因素：</strong>在强调集体和谐的文化中，公然违规行为更显突兀；但隐蔽性欺骗行为可能被低估</li>
+          <li><strong>刑事司法系统：</strong>社会对反社会行为的反应（监禁而非治疗）可能强化而非改善模式</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 06 Treatment -->
+<section id="treatment" class="alt">
+  <div class="section-head">
+    <div class="section-num">06 · EVIDENCE-BASED INTERVENTIONS</div>
+    <h2>基于实证的干预措施</h2>
+    <p>心理治疗是两种障碍的核心。药物治疗为辅，且对核心症状效果有限。</p>
+  </div>
+  <h3 style="color:var(--navy);margin-bottom:16px;font-size:18px;">心理治疗：核心疗法比较</h3>
+  <div class="ctable-wrap" style="margin-bottom:24px;">
+    <table class="ctable">
+      <colgroup><col style="width:16%"><col style="width:26%"><col style="width:32%"><col style="width:26%"></colgroup>
+      <thead><tr><th>疗法</th><th>作用机制</th><th>证据等级与疗效</th><th>临床定位</th></tr></thead>
+      <tbody>
+        <tr><td class="dim">辩证行为治疗 DBT</td><td>结合 CBT 改变技术与接纳/正念策略；四大模块：正念、痛苦耐受、情绪调节、人际效能</td><td><strong>BPD 一线疗法</strong>。多项 RCT 显示自伤行为降低 50%+，住院天数减少（Linehan et al., 1991, 2006; Cochrane 2020）<span class="cite">[19][20]</span></td><td>每周个别治疗 + 团体技能训练 + 24/7 电话 coaching + 治疗师督导团队</td></tr>
+        <tr><td class="dim">心智化治疗 MBT</td><td>恢复反思功能——理解自己和他人行为背后的心理状态；在治疗关系中修复「心智化失灵」</td><td>BPD 疗效与 DBT 相当（Bateman & Fonagy 系列 RCT）；<strong>MBT-ASPD</strong> 于 MOAM 试验（Lancet Psychiatry, 2024）显示再犯率下降<span class="cite">[21][22]</span></td><td>每周个别 + 团体；ASPD 变体特别针对「心智盲」</td></tr>
+        <tr><td class="dim">图式治疗 Schema</td><td>识别并修补早年适应不良图式（如「被抛弃」「不可爱」）</td><td>对 BPD 有良好 RCT 证据（Giesen-Bloo et al., 2006）；ASPD 证据为新兴</td><td>长期（1–3 年），每周个别 + 团体</td></tr>
+        <tr><td class="dim">TFP 移情焦点治疗</td><td>通过治疗联盟中的移情分析，整合分裂的部分</td><td>BPD RCT 显示显著改善，尤其身份混乱与人际功能<span class="cite">[23]</span></td><td>每周 2 次个别治疗，需训练有素的心理动力治疗师</td></tr>
+        <tr><td class="dim">CBT（司法适配版）</td><td>挑战敌意归因、计算行为成本-收益、冲动控制训练、角色扮演</td><td>ASPD 在监狱/社区样本中效果中等；可减少再犯但对精神病态特质效果有限<span class="cite">[24]</span></td><td>团体为主，结构化，设定明确行为目标</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="card bpd-card">
+      <h3><span class="dot"></span>BPD 药物治疗：辅助角色</h3>
+      <ul>
+        <li><strong>核心原则：</strong>没有任何药物被 FDA 批准用于治疗 BPD 本身。药物仅为<strong>辅助</strong>，针对特定症状或共病<span class="cite">[25]</span></li>
+        <li><strong>SSRIs（氟西汀、依地普仑等）：</strong>可能改善共病抑郁与焦虑，但对核心 BPD 症状（冲动、人际不稳）效果不一致；少数患者出现行为激活<span class="cite">[25][26]</span></li>
+        <li><strong>情绪稳定剂（丙戊酸盐、拉莫三嗪）：</strong>可能对情绪不稳与冲动有一定效果，证据等级中等</li>
+        <li><strong>非典型抗精神病药（奥氮平、利培酮）：</strong>短期可能降低认知-知觉症状和冲动，但代谢副作用限制长期使用</li>
+        <li><strong>Cochrane 评价（2022）：</strong>整体证据品质低——样本小、排除标准多、缺乏复制<span class="cite">[27]</span></li>
+        <li><strong>临床警示：</strong>避免过度医疗化；药物不能替代 DBT 等专门心理治疗</li>
+      </ul>
+    </div>
+    <div class="card aspd-card">
+      <h3><span class="dot"></span>ASPD 药物治疗：证据更弱</h3>
+      <ul>
+        <li><strong>同样无 FDA 批准药物</strong>用于 ASPD 核心诊断</li>
+        <li><strong>冲动/攻击：</strong>情绪稳定剂（锂盐、丙戊酸盐）或非典型抗精神病药可能减少攻击爆发，但证据来自小样本</li>
+        <li><strong>共病治疗：</strong>治疗共病的物质使用障碍、ADHD 或抑郁可能间接改善症状</li>
+        <li><strong>不推荐：</strong>针对「精神病态特质」无有效药物；不要尝试用药物「治愈冷酷」</li>
+        <li><strong>治疗悲观主义：</strong>临床人员常对 ASPD 持负面态度——但新证据（MBT-ASPD）提示治疗乐观主义正在增强<span class="cite">[22]</span></li>
+        <li><strong>司法场景现实：</strong>治疗动机常来自外部（缓刑假释），治疗师需善用外部结构，而非依赖内省动机</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pull">
+    「对于 BPD，我们不是在治疗一个『没法治的人格』——我们是在治疗一种情绪调节系统的失灵，而情绪调节是可以学习的技能。」—— Marsha Linehan
+  </div>
+</section>
+
+<!-- 07 Critical -->
+<section id="critical">
+  <div class="section-head">
+    <div class="section-num">07 · CRITICAL ANALYSIS</div>
+    <h2>批判性分析与未来方向</h2>
+    <p>诊断争议、文化适用性、媒体再现与研究缺口——这些是课堂反思的核心。</p>
+  </div>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <h3>诊断概念层次的争议</h3>
+      <h4 style="font-size:15px;color:var(--navy);margin:12px 0 8px;">BPD：过度诊断 vs 污名化</h4>
+      <ul>
+        <li><strong>分类 vs 维度：</strong>DSM-5 仍保留类别诊断，但 AMPD 和 ICD-11 都走向维度取向。类别诊断要求「是/否」判断，而人格特质实际上是连续光谱<span class="cite">[5]</span></li>
+        <li><strong>性别政治：</strong>BPD 约 75% 诊断为女性——这是真实性别差异，还是将女性情绪反应路径化、将男性同样特质归入「ASPD」？<span class="cite">[28]</span></li>
+        <li><strong>「边缘」一词的历史包袱：</strong>源自「边界于精神病与神经症之间」——这一历史分类本身带有贬义</li>
+      </ul>
+      <h4 style="font-size:15px;color:var(--navy);margin:16px 0 8px;">ASPD：诊断不足 vs 标签化</h4>
+      <ul>
+        <li><strong>行为标准 vs 心理特质：</strong>DSM-5 的 ASPD 主要看外显行为（逮捕记录、说谎、攻击），可能错过「白领」形式的冷酷操纵（无犯罪记录但同样剥削他人）<span class="cite">[4]</span></li>
+        <li><strong>女性 ASPD 被低估：</strong>女性的反社会行为可能采取关系攻击、操纵等隐蔽形式，不符合 DSM 的外显行为标准</li>
+        <li><strong>「治疗无效」的自我实现预言：</strong>临床人员的治疗悲观主义可能导致转介不足、治疗提前终止，反而强化了「难治疗」的刻板印象<span class="cite">[22]</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>跨文化与本土适用性（中国 / 香港）</h3>
+      <h4 style="font-size:15px;color:var(--navy);margin:12px 0 8px;">BPD 在华语文化的独特问题</h4>
+      <ul>
+        <li><strong>CCMD 未接纳 BPD：</strong>中国《中国精神障碍分类与诊断标准》（CCMD-3）未正式确立「边缘型人格障碍」这一诊断类别，临床医生常将其错误诊断为精神分裂症、双相情感障碍或神经症<span class="cite">[29][30]</span></li>
+        <li><strong>文化表现差异：</strong>东亚样本中，BPD 可能表现为更多<strong>躯体化、内化症状、羞耻感</strong>，而非西方样本常见的明显外显愤怒和自伤。就医场景更多在综合医科而非精神科<span class="cite">[31]</span></li>
+        <li><strong>集体主义与「害怕被遗弃」：</strong>在强调家庭和谐、群体归属的文化中，个人化的「被遗弃恐惧」可能以家庭义务感、罪恶感的形式表达，不易被西方诊断标准识别</li>
+        <li><strong>香港处境：</strong>香港精神科体系以西方诊断框架为主，但华人社会对「人格障碍」标签的污名极深，患者常被家庭否认或隐藏；学业压力与家庭期待也加剧情绪调节困难</li>
+      </ul>
+      <h4 style="font-size:15px;color:var(--navy);margin:16px 0 8px;">ASPD 在华语文化</h4>
+      <ul>
+        <li>云南少数民族地区青少年研究显示，反社会行为阳性率 5.4%，ASPD 筛查阳性率 4.4%——高于一般西方社区估计<span class="cite">[32]</span></li>
+        <li>华人社会对「面子」和社会和谐的重视，可能使轻度反社会行为被容忍或重新包装为「圆滑」「灵活」，延误识别</li>
+        <li>刑事司法体系与精神医疗体系的衔接不足，是香港与中国内地面对 ASPD 的共同挑战</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>媒体再现与公众认知</h3>
+      <ul>
+        <li><strong>BPD 的媒体形象：</strong>影视作品常将 BPD 描绘为「危险的女性」——BPD 角色要么是暴力的疯女人，要么是被误解的悲剧形象。这种再现加剧了污名，也掩盖了 BPD 患者自伤自杀的真实风险<span class="cite">[33]</span></li>
+        <li><strong>ASPD/精神病态的浪漫化：</strong>《沉默的羔羊》Hannibal Lecter——高智商魅力型变态杀手成为文化偶像。真实 ASPD 患者多数不是诱人反派，而是生活贫困、反复入狱、治疗动机极低的边缘人群。媒体的「魅力精神病态」叙事扭曲了公众对风险的认知</li>
+        <li><strong>「男性精神病态 vs 女性边缘」的文化刻板：</strong>男性的冲动和情感麻木被合理化为「领袖特质」，女性的同样情绪波动则被病理化——这是性别化诊断偏见的核心批判点</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>研究与治疗缺口</h3>
+      <ul>
+        <li><strong>ASPD 治疗研究贫乏：</strong>与 BPD 相比，ASPD 的 RCT 数量少得多，样本小，长期追踪不足。MBT-ASPD 的突破是新开始，但需要更多独立复制<span class="cite">[22]</span></li>
+        <li><strong>神经影像研究的方法论问题：</strong>多数 BPD 神经影像研究样本量小、共病未控制（创伤、PTSD、物质使用），难以推论 BPD 特异性差异<span class="cite">[13]</span></li>
+        <li><strong>女性 ASPD 被忽视：</strong>绝大多数 ASPD 治疗研究在男性罪犯中进行，女性的表现、风险轨迹和治疗需求几乎空白</li>
+        <li><strong>新兴方向：</strong>神经反馈、虚拟现实暴露、基于表征的治疗（MBT 的数字化）、以及 G×E 交互的精准医学路径</li>
+        <li><strong>未来关键问题：</strong>能否在青春期前识别高危儿童并早期介入？这是两种障碍共同的研究前沿</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 08 Interactive -->
+<section id="interactive" class="alt">
+  <div class="section-head">
+    <div class="section-num">08 · INTERACTIVE LEARNING</div>
+    <h2>案例分析、辩论与互动练习</h2>
+    <p>将临床思维付诸练习——以下案例和讨论题用于小组研讨、课堂辩论与自我测验。</p>
+  </div>
+
+  <h3 style="color:var(--navy);margin-bottom:14px;font-size:18px;">案例一：诊断练习</h3>
+  <div class="case">
+    <div class="case-label">CASE A · 22 岁女性</div>
+    <h4>小兰的故事</h4>
+    <p>小兰，22 岁，大四学生。她每周都主动找辅导老师，描述自己「情绪像坐过山车」——前一天还觉得新认识的男友是「灵魂伴侣」，第二天就因为他迟到 10 分钟而确信「他不爱我了」，拨打 10 次电话、发 40 条讯息，甚至用刀片划手臂。她说自己「心里有个洞」，从小就觉得「不知道自己是谁」，母亲经常忽视她的情绪表达——「哭什么哭，这有什么好难过的」。她反复因为怕被抛弃而做出极端行为，但事后又极度内疚。</p>
+    <button class="case-btn" onclick="toggleCase('caseA')">展开临床分析</button>
+    <div class="case-body" id="caseA">
+      <h5>临床分析要点</h5>
+      <p><strong>最可能诊断：边缘型人格障碍（BPD）。</strong><br>
+      线索：① 疯狂避免被遗弃（迟到 10 分钟即确信被抛弃）；② 理想化-贬抑交替（灵魂伴侣 → 不爱我了）；③ 身份混乱（不知道自己是谁）；④ 自伤行为（割手臂）；⑤ 慢性空虚感（心里有个洞）；⑥ 情绪不稳（数小时内波动）。<br>
+      发展背景：母亲情绪失效回应——Linehan 生物-社会理论的典型环境。<br>
+      鉴别：需排除双相 II 型（情绪周期以小时计且人际触发，非数天/周的发作）、C-PTSD（创伤史存在但核心是依附和身份问题而非单纯闪回）。<br>
+      治疗建议：DBT 为一线，优先处理自伤风险和自杀安全性。</p>
+    </div>
+  </div>
+
+  <div class="case teal">
+    <div class="case-label">CASE B · 28 岁男性</div>
+    <h4>阿杰的故事</h4>
+    <p>阿杰，28 岁，多次入狱记录。他在面试时表现得极度迷人，善于讲故事让别人同情他「被社会陷害」。他承认过去十年间换了十几份工作，从未在一个岗位待超过三个月；多次因为合同诈骗被捕，但他说「我只是比别人聪明，知道规则的漏洞」。他提到小学时就常逃学、打架、虐待小动物。当被问及过去欺骗的受害者是否难过时，他耸肩：「他们自己蠢，活该。」他从不觉得需要心理治疗——是法院强制他来的。</p>
+    <button class="case-btn" onclick="toggleCase('caseB')">展开临床分析</button>
+    <div class="case-body" id="caseB">
+      <h5>临床分析要点</h5>
+      <p><strong>最可能诊断：反社会型人格障碍（ASPD），合并精神病态特质。</strong><br>
+      线索：① 不遵从社会规范（合同诈骗、多次入狱）；② 欺骗性（表面迷人、编造故事）；③ 冲动/无计划（换十几份工作）；④ 无悔意（「他们活该」）；⑤ 15 岁前品行问题（小学逃学、打架、虐待动物）；⑥ 年龄 > 18。<br>
+      精神病态维度：表面魅力、缺乏悔意、浅薄情感——PCL-R 可能提示高分，但 DSM-5 的 ASPD 诊断仍以行为标准为主。<br>
+      治疗挑战：外部动机（法院强制）、高脱落风险、可能操纵治疗师。MBT-ASPD 的社区样本试验是新方向；CBT 需结构化、外部强化。不要试图用「共情」触动他——他的心智化能力本身就是缺陷。</p>
+    </div>
+  </div>
+
+  <h3 style="color:var(--navy);margin:32px 0 14px;font-size:18px;">辩论练习</h3>
+  <div class="debate">
+    <div class="debate-q">
+      <strong>辩题：</strong>「人格障碍」这个诊断标签，在 21 世纪的跨文化精神医学中——是弊大于利，还是利大于弊？
+      <br><br>
+      提示方向：考虑 BPD 的污名化、ASPD 的标签化与刑事化、ICD-11 维度化改革、华人社会的文化适配、以及「诊断」本身的处遇政治。
+    </div>
+    <div class="debate-opts">
+      <div class="debate-opt" onclick="selectDebate(this)">
+        <div class="lbl">正方：利大于弊</div>
+        <div class="desc">诊断提供共同语言、指导治疗选择、引导资源分配。BPD 有 DBT 等有效治疗——没有诊断，患者得不到帮助。ICD-11 的维度化改革已在修正问题。</div>
+      </div>
+      <div class="debate-opt" onclick="selectDebate(this)">
+        <div class="lbl">反方：弊大于利</div>
+        <div class="desc">诊断是社会控制工具；BPD 被污名、ASPD 被刑事化；类别边界武断、共病高、文化偏差。不如全面采用维度化、去除标签。</div>
+      </div>
+    </div>
+    <div class="debate-fb" id="debate-fb"></div>
+  </div>
+
+  <h3 style="color:var(--navy);margin:32px 0 14px;font-size:18px;">快速测验：你掌握了吗？</h3>
+  <div id="quiz" style="max-width:720px;"></div>
+</section>
+
+<!-- 09 References -->
+<section id="references">
+  <div class="section-head">
+    <div class="section-num">09 · REFERENCES</div>
+    <h2>参考文献（APA 7th）</h2>
+    <p>本模块引用的主要同行评议文献与权威来源。</p>
+  </div>
+  <div class="card refs">
+    <ol>
+      <li>American Psychiatric Association. (2022). <em>Diagnostic and statistical manual of mental disorders</em> (5th ed., text rev.). https://doi.org/10.1176/appi.books.9780890425596</li>
+      <li>American Psychiatric Association. (2023). <em>The American Psychiatric Association practice guideline for the treatment of patients with borderline personality disorder</em>. American Psychiatric Association Publishing.</li>
+      <li>Blair, R. J. R. (2013). The neurobiology of psychopathic traits in youths. <em>Nature Reviews Neuroscience</em>, 14(11), 786–799. https://doi.org/10.1038/nrn3577</li>
+      <li>Blair, R. J. R. (2014). Empathy, morality, and social convention: Evidence from the study of psychopathy and other psychiatric disorders. <em>Annual Review of Clinical Psychology</em>, 10, 299–323. https://doi.org/10.1146/annurev-clinpsy-032813-153736</li>
+      <li>WHO. (2019). <em>ICD-11 for mortality and morbidity statistics: 6D50 Personality disorder or personality difficulty</em>. World Health Organization.</li>
+      <li>Grant, B. F., Chou, S. P., Goldstein, R. B., et al. (2008). Prevalence, correlates, disability, and comorbidity of borderline personality disorder: Results from NESARC Wave 2. <em>The Journal of Clinical Psychiatry</em>, 69(4), 533–545.</li>
+      <li>Schmideberg, M., et al. (2024). Borderline personality disorder: A comprehensive review. <em>Frontiers in Psychiatry</em>, 15, 1300000.</li>
+      <li>Zanarini, M. C., Frankenburg, F. R., Reich, D. B., et al. (2010). Time to attainment of recovery from BPD: A 10-year prospective follow-up. <em>American Journal of Psychiatry</em>, 167(6), 663–671.</li>
+      <li>Chmielewski, M., et al. (2014). The epidemiology of antisocial behavioral syndromes in adulthood: NESARC-III. <em>Journal of Clinical Psychiatry</em>, 77(8), e1052–e1059.</li>
+      <li>Lenzenweger, M. F., Lane, M. C., Loranger, A. W., & Kessler, R. C. (2007). DSM-IV personality disorders in the NCS-R. <em>Biological Psychiatry</em>, 62(6), 553–564.</li>
+      <li>Reichborn-Kjennerud, T. (2010). The genetic epidemiology of personality disorder. <em>Current Psychiatry Reports</em>, 12(1), 77–84.</li>
+      <li>Amad, A., Ramoz, N., Thomas, P., Jardri, R., & Gorwood, P. (2014). Genetics of borderline personality disorder: Systematic review. <em>Neuroscience & Biobehavioral Reviews</em>, 40, 3–19.</li>
+      <li>Ruocco, A. C., Amirthavasagam, S., & Zakzanis, K. K. (2012). Amygdala and hippocampal volume reductions in BPD: A meta-analysis. <em>Schizophrenia Research</em>, 141(2-3), 245–252.</li>
+      <li>O'Neill, A., & Frodl, T. (2017). Brain structure and function in BPD: A selective review. <em>Current Neuropharmacology</em>, 15(7), 1006–1016.</li>
+      <li>Linehan, M. M. (1993). <em>Cognitive-behavioral treatment of borderline personality disorder</em>. Guilford Press.</li>
+      <li>Rosenström, T., et al. (2017). A nationwide twin study of antisocial behavior. <em>Psychological Medicine</em>, 47(13), 2346–2356.</li>
+      <li>Tuvblad, C., & Baker, L. A. (2011). Human and animal research on the genetic and environmental causes of aggressive behavior. <em>Behavioral Genetics</em>, 41(5), 641–647.</li>
+      <li>Raine, A. (2018). <em>The anatomy of violence: The biological roots of crime</em>. Pantheon.</li>
+      <li>Linehan, M. M., Comtois, K. A., Murray, A. M., et al. (2006). Two-year RCT of DBT vs therapy by experts for suicidal behaviors and BPD. <em>Archives of General Psychiatry</em>, 63(7), 757–766.</li>
+      <li>Storebø, O. J., et al. (2020). Psychological treatment for people with BPD. <em>Cochrane Database of Systematic Reviews</em>, 5, CD009833.</li>
+      <li>Bateman, A., & Fonagy, P. (2009). RCT of outpatient mentalization-based treatment vs structured clinical management for BPD. <em>American Journal of Psychiatry</em>, 166(12), 1355–1364.</li>
+      <li>McMurran, M., et al. (2024). Mentalisation for offending adult males (MOAM): RCT of MBT for ASPD. <em>The Lancet Psychiatry</em>, 11(3), 189–199.</li>
+      <li>Yeomans, F. E., & Levy, K. N. (2020). Psychodynamic psychotherapy for BPD. <em>Journal of Clinical Psychology</em>, 76(7), 1269–1280.</li>
+      <li>NICE. (2009). <em>Antisocial personality disorder: Treatment, management and prevention (CG77)</em>. National Institute for Health and Care Excellence.</li>
+      <li>Li, E., et al. (2023). Pharmacological interventions for people with BPD. <em>Cochrane Database of Systematic Reviews</em>, 11, CD012956.</li>
+      <li>Hermes, E. D., et al. (2023). Pharmacological management of BPD and common comorbidities. <em>CNS Drugs</em>, 37, 533–551.</li>
+      <li>Stoffers, J. M., & Lieb, K. (2016). Pharmacotherapy for BPD—Current evidence and recent trends. <em>Current Pharmaceutical Design</em>, 22(19), 2767–2776.</li>
+      <li>Paris, J. (2018). Gender and personality disorders. <em>Journal of Personality Disorders</em>, 32(5), 583–595.</li>
+      <li>Zhong, J., & Leung, F. (2009). Diagnosis of BPD in China: Current status and future directions. <em>Psychiatry and Clinical Neurosciences</em>, 63(4), 552–559.</li>
+      <li>Ryder, A. G., Yang, J., & Heine, S. J. (2013). Personality disorder research in China. <em>Journal of Personality Disorders</em>, 27(3), 358–375.</li>
+      <li>Chen, H., et al. (2022). BPD in East Asian adolescents: A comprehensive review. <em>Clinical Child and Family Psychology Review</em>, 25, 455–473.</li>
+      <li>Zhang, J., et al. (2024). Antisocial behavior and ASPD among youth in ethnic minority areas in China. <em>Alpha Psychiatry</em>, 31(2), 89–97.</li>
+      <li>Staat, R., & Nelson, M. C. (2016). Media portrayals of borderline personality disorder. <em>Journal of Mental Health</em>, 25(5), 412–418.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <p>本教学模块仅供临床心理学教学与学术讨论使用，不构成临床诊断或治疗建议。所有诊断决策应由受过训练的精神健康专业人员在完整临床面谈与病史采集后作出。</p>
+  <p style="margin-top:8px;opacity:.7;">© 2026 Personality Disorders Comparative Module · APA 7th References</p>
+</footer>
+
+</main>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tabs').forEach(tabs=>{
+  const btns=tabs.querySelectorAll('.tab-btn');
+  btns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const parent=tabs.parentElement;
+      btns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      const t=parent.querySelector('#'+btn.dataset.tab);
+      if(t)t.classList.add('active');
+    });
+  });
+});
+
+// Sidebar active state
+const sidebarLinks=document.querySelectorAll('.sidebar a');
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});
+  sidebarLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+});
+
+// Case toggle
+function toggleCase(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('show');
+  el.previousElementSibling.textContent=el.classList.contains('show')?'收起临床分析':'展开临床分析';
+}
+
+// Debate
+function selectDebate(el){
+  document.querySelectorAll('.debate-opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  const fb=document.getElementById('debate-fb');
+  fb.style.display='block';
+  const pos=el.querySelector('.lbl').textContent.includes('正方');
+  fb.innerHTML=pos
+    ?'<strong>正方思路：</strong>诊断分类虽不完美，但它是治疗进入的入口——BPD 患者需要 DBT 等专门治疗，ASPD 患者需要司法-医疗衔接系统。ICD-11 的维度化改革已在修正类别问题，而非抛弃分类。关键在于：谁在使用这个标签？在什么场景下？是否伴随去标签化的治疗联盟？'
+    :'<strong>反方思路：</strong>请注意——诊断从来不是「中性描述」。BPD 被医护人员污名为「操纵者」，ASPD 被刑事化为「不可治」。在华语语境下，CCMD 不承认 BPD 本身就反映了文化政治。与其在类别框架内修修补补，不如走向完全维度化的表征，去除「你是什么人」的本质化标签。';
+}
+
+// Quiz
+const quizData=[
+  {q:'根据 DSM-5-TR，ASPD 诊断的必要前提是？',opts:['个体至少 21 岁','15 岁前有品行障碍（CD）证据','有犯罪记录','无悔意'],a:1,e:'DSM-5-TR 明确要求：诊断 ASPD 必须有证据表明 15 岁前存在品行障碍，且个体至少 18 岁。'},
+  {q:'以下哪一项是 BPD 与 ASPD 在 AMPD 特质模型上的主要区别？',opts:['BPD 高去抑制，ASPD 低去抑制','BPD 高负情感性，ASPD 高对抗性','BPD 高分裂，ASPD 低分裂','两者在特质上没有差异'],a:1,e:'BPD = 高负情感性 + 高去抑制；ASPD = 高对抗性 + 高去抑制。共享去抑制，但情绪效价和人际风格根本不同。'},
+  {q:'关于 BPD 的药物治疗，以下哪项描述最准确？',opts:['FDA 已批准多种药物治疗 BPD','药物是 BPD 治疗的主力','没有 FDA 批准的 BPD 专用药物，药物仅为辅助','SSRIs 对 BPD 核心症状有强效'],a:2,e:'没有任何药物被 FDA 批准用于 BPD 本身。Cochrane 评价显示整体证据品质低；心理治疗（尤其 DBT）是主力。'},
+  {q:'Linehan 生物-社会理论中，BPD 是哪两个因素的交互结果？',opts:['基因突变 × 脑损伤','情绪敏感体质 × 情绪失效环境','贫困 × 坏同伴','创伤 × 物质滥用'],a:1,e:'Linehan 认为 BPD 来自高情绪敏感的儿童与 dismissive/失效的照顾环境之间的双向交互。'},
+  {q:'在中国语境下，BPD 诊断面临的独特问题是？',opts:['中国不允许诊断人格障碍','CCMD 未正式接纳 BPD 类别，患者常被误诊为精神分裂症或双相','BPD 在中国完全不存在','中国使用与 DSM 完全不同的诊断标准'],a:1,e:'CCMD-3 未正式确立 BPD 诊断，临床医生常将其归入精神分裂、双相或神经症；东亚样本也呈现更多躯体化表现。'}
+];
+const quizEl=document.getElementById('quiz');
+quizData.forEach((item,i)=>{
+  const q=document.createElement('div');q.className='quiz-q';
+  q.innerHTML='<div class="qt">'+(i+1)+'. '+item.q+'</div>';
+  const opts=document.createElement('div');opts.className='quiz-opts';
+  item.opts.forEach((opt,j)=>{
+    const o=document.createElement('div');o.className='quiz-opt';o.textContent=opt;
+    o.addEventListener('click',()=>{
+      if(q.dataset.done)return;q.dataset.done='1';
+      opts.querySelectorAll('.quiz-opt').forEach((a,ai)=>{
+        if(ai===item.a)a.classList.add('ok');
+        else if(ai===j)a.classList.add('no');
+      });
+      const fb=q.querySelector('.quiz-fb');
+      fb.className='quiz-fb show '+(j===item.a?'ok':'no');
+      fb.textContent=(j===item.a?'回答正确！':'再想想。')+' '+item.e;
+    });
+    opts.appendChild(o);
+  });
+  q.appendChild(opts);
+  const fb=document.createElement('div');fb.className='quiz-fb';q.appendChild(fb);
+  quizEl.appendChild(q);
+});
+
+// ECharts
+const chartEpi=echarts.init(document.getElementById('chart-epi-bpd'));
+chartEpi.setOption({
+  tooltip:{trigger:'axis'},
+  grid:{left:60,right:20,top:20,bottom:40},
+  xAxis:{type:'category',data:['社区一般人群','初级保健','精神科门诊','精神科住院'],axisLabel:{fontSize:11}},
+  yAxis:{type:'value',max:25,axisLabel:{formatter:'{value}%'}},
+  series:[{type:'bar',data:[
+    {value:1.8,itemStyle:{color:'#7ab0b2'}},
+    {value:6,itemStyle:{color:'#3d7a7c'}},
+    {value:11.5,itemStyle:{color:'#c8956c'}},
+    {value:22,itemStyle:{color:'#b85450'}}
+  ],label:{show:true,position:'top',formatter:'{c}%',fontSize:11},barWidth:'50%'}]
+});
+const chartGender=echarts.init(document.getElementById('chart-gender'));
+chartGender.setOption({
+  tooltip:{trigger:'axis'},
+  legend:{bottom:0,textStyle:{fontSize:12}},
+  grid:{left:60,right:20,top:20,bottom:50},
+  xAxis:{type:'category',data:['BPD','ASPD'],axisLabel:{fontSize:13}},
+  yAxis:{type:'value',axisLabel:{formatter:'{value}%'}},
+  series:[
+    {name:'女性',type:'bar',stack:'g',data:[1.8,0.8],itemStyle:{color:'#c8956c'},label:{show:true,formatter:'{c}%',fontSize:11}},
+    {name:'男性',type:'bar',stack:'g',data:[0.6,3.5],itemStyle:{color:'#3d7a7c'},label:{show:true,formatter:'{c}%',fontSize:11}}
+  ]
+});
+const chartRadar=echarts.init(document.getElementById('chart-radar'));
+chartRadar.setOption({
+  tooltip:{},
+  legend:{bottom:0,data:['BPD','ASPD'],textStyle:{fontSize:13}},
+  radar:{indicator:[
+    {name:'负情感性',max:5},{name:'对抗性',max:5},{name:'去抑制',max:5},{name:'分裂/疏离',max:5},{name:'精神病性',max:5}
+  ],radius:'65%',axisName:{fontSize:12,color:'#232323'}},
+  series:[{type:'radar',data:[
+    {value:[4.5,2,4,1.5,2],name:'BPD',areaStyle:{color:'rgba(200,149,108,.3)'},lineStyle:{color:'#c8956c'},itemStyle:{color:'#c8956c'}},
+    {value:[1.5,4.5,4,3,1],name:'ASPD',areaStyle:{color:'rgba(61,122,124,.3)'},lineStyle:{color:'#3d7a7c'},itemStyle:{color:'#3d7a7c'}}
+  ]}]
+});
+window.addEventListener('resize',()=>{chartEpi.resize();chartGender.resize();chartRadar.resize();});
+</script>
+</main>
+</div>
+</body>
+</html>
